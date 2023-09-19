@@ -9,7 +9,7 @@
     <p>Click submit to save your answer.</p>
     <br>
     <p>View data collected so far <a href='data.csv'>here</a>.</p>
-    
+
     <?php
       //Check if form has been submitted
       if (isset($_POST['thing'])) {
@@ -46,9 +46,9 @@
       $things = array(
         "Birds",
         "Insects",
+        "People", 
         "Other animals",
         "Cars", 
-        "People", 
         "Other vehicles", 
         "Nothing",
         "I don't know"
