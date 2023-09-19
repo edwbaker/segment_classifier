@@ -6,6 +6,10 @@
   <body>
     <h1>Segments Demo</h1>
     <p>Listen to the audio segment and select the dominant sound.</p>
+    <p>Click submit to save your answer.</p>
+    <br>
+    <p>View data collected so far <a href='data.csv'>here</a>.</p>
+    
     <?php
       //Check if form has been submitted
       if (isset($_POST['thing'])) {
@@ -36,6 +40,8 @@
       echo "<source src='$file' type='audio/wav'>";
       echo "</audio>";
 
+      echo "<br><br>";
+
       //Array of things that might be in the audio file
       $things = array(
         "Birds",
@@ -44,7 +50,8 @@
         "Cars", 
         "People", 
         "Other vehicles", 
-        "Nothing"
+        "Nothing",
+        "I don't know"
       );
 
       //Create form with radio buttons for each thing
@@ -52,6 +59,9 @@
       foreach ($things as $thing) {
         echo "<input type='radio' name='thing' value='$thing'>$thing<br>";
       }
+      //Hidden input to pass file name to form handler
+      echo "<input type='hidden' name='file' value='$file'>";
+
       echo "<input type='submit' value='Submit'>";
       echo "</form>";
 
